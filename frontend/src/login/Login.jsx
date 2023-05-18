@@ -4,7 +4,6 @@ import { useAuth } from "../auth/Auth";
 import "./Login.css";
 import logo  from "../recursos/logo.png";
 import Alert from '@mui/material/Alert';
-import Modal from '@material-ui/core/Modal';
 
 const Login = () => {
   const { onLogin } = useAuth();
@@ -13,14 +12,7 @@ const Login = () => {
     register,
     formState: { errors },
   } = useForm();
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
- const [open, setOpen] = useState(false);
+ 
   return (  
     <div className="Login">
       <div className="Izq">
@@ -61,7 +53,7 @@ const Login = () => {
             className="form-control form-control-lgl"
             placeholder="Contraseña"
             {...register("password", {
-              required: "Required",
+              required: "invalid password",
               message: "invalid password",
             })}
           />      
